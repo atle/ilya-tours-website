@@ -1,0 +1,39 @@
+- title: "Classic Wildlife Safari"
+  tag: "Safari"
+  duration: "4 days / 3 nights"
+  image: "/assets/images/tour-safari-lion.jpg"
+  description: >-
+    Serengeti, Ngorongoro Crater and Lake Manyara by 4x4 — big cats,
+    wildebeest herds and flamingo-lined lakes. Camping or lodge options.
+
+- title: "Kilimanjaro Climb"
+  tag: "Mountain"
+  duration: "6-7 days"
+  image: "/assets/images/tour-kilimanjaro.jpg"
+  description: >-
+    Summit Africa's highest peak via the Marangu or Machame route,
+    with experienced guides, porters and cooks all the way to Uhuru Peak.
+
+- title: "Usambara Mountains Trek"
+  tag: "Hiking"
+  duration: "2-5 days"
+  image: "/assets/images/tour-usambara.jpg"
+  description: >-
+    Rainforest trails, viewpoints and village stays in the Usambaras
+    near Lushoto — a cooler, greener side of Tanzania on foot.
+
+- title: "Beach Escape"
+  tag: "Beach"
+  duration: "Flexible"
+  image: "/assets/images/tour-beach.jpg"
+  description: >-
+    Unwind on the coast at Pangani, Zanzibar or Pemba after your safari
+    or climb — white sand, palm trees and the Indian Ocean.
+
+- title: "Maasai Village & Culture Tour"
+  tag: "Culture"
+  duration: "Day trip"
+  image: "/assets/images/tour-maasai.jpg"
+  description: >-
+    Visit a Maasai boma, local markets and historic sites around Tanga —
+    a respectful, community-based look at everyday life in Tanzania.

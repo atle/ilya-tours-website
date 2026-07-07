@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "jekyll",
+      "runtimeExecutable": "/Users/atle/Documents/SimplyDots/Ilya_Tours/.claude/run-jekyll.sh",
+      "runtimeArgs": [],
+      "port": 4000
+    }
+  ]
+}

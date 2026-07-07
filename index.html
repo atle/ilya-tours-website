@@ -1,0 +1,146 @@
+---
+layout: default
+---
+
+<section class="hero" style="background-image: linear-gradient(180deg, rgba(35,28,17,.55), rgba(35,28,17,.75)), url('{{ "/assets/images/hero-wildebeest.jpg" | relative_url }}');">
+  <div class="container hero-inner">
+    <h1>Discover the Real Tanzania</h1>
+    <p class="hero-sub">
+      Wildlife safaris, Kilimanjaro treks, Usambara hikes, beach escapes and
+      cultural tours &mdash; run by a local, family-owned operator based in
+      Tanga since day one.
+    </p>
+    <div class="hero-actions">
+      <a href="#tours" class="btn btn-primary">See Example Tours</a>
+      <a href="#contact" class="btn btn-outline">Plan My Trip</a>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section">
+  <div class="container about-grid">
+    <div class="about-text">
+      <h2>Local experts, personal service</h2>
+      <p>
+        Ilya Tours &amp; Safaris Ltd is a locally owned tour operator based in
+        Tanga, on Tanzania's north-east coast &mdash; close to the Kenyan
+        border and just a short hop from Zanzibar, Pemba and Dar es Salaam.
+      </p>
+      <p>
+        We arrange everything from camping and lodge safaris in the
+        Serengeti, Ngorongoro Crater and Lake Manyara, to Kilimanjaro and
+        Mt Meru climbs, Usambara mountain treks, beach holidays and
+        community-based cultural tours. Many of our trips support local
+        guides, food producers and eco-conscious partners along the way.
+      </p>
+      <p>
+        Whether you're backpacking or looking for comfort and luxury, we
+        design each trip around you &mdash; and if you're travelling
+        anywhere else in Tanzania, we can arrange that too.
+      </p>
+    </div>
+    <div class="about-image">
+      <img src="{{ '/assets/images/about-flamingos.jpg' | relative_url }}" alt="Flamingos at Lake Manyara, Tanzania">
+    </div>
+  </div>
+</section>
+
+<section id="tours" class="section section-alt">
+  <div class="container">
+    <div class="section-heading">
+      <h2>A Taste of What We Offer</h2>
+      <p>
+        A few of our most popular trips &mdash; every itinerary is
+        tailored to your time, budget and interests. Get in touch and
+        we'll build the full plan with you.
+      </p>
+    </div>
+
+    <div class="tour-grid">
+      {% for tour in site.data.tours %}
+      <article class="tour-card">
+        <div class="tour-image">
+          <img src="{{ tour.image | relative_url }}" alt="{{ tour.title }}">
+          <span class="tour-tag">{{ tour.tag }}</span>
+        </div>
+        <div class="tour-body">
+          <h3>{{ tour.title }}</h3>
+          <p class="tour-duration">{{ tour.duration }}</p>
+          <p>{{ tour.description }}</p>
+          <a href="#contact" class="tour-link">Ask about this tour &rarr;</a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+
+    <p class="tours-note">
+      These are just examples &mdash; safaris, climbs, treks and beach
+      stays can all be combined and adjusted to fit your holiday.
+    </p>
+  </div>
+</section>
+
+<section id="why-us" class="section">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Why Travel With Ilya Tours</h2>
+    </div>
+    <div class="feature-grid">
+      <div class="feature">
+        <h3>Local Knowledge</h3>
+        <p>Based in Tanga and run by people who know the parks, mountains and coast first-hand.</p>
+      </div>
+      <div class="feature">
+        <h3>Tailored Itineraries</h3>
+        <p>Camping or lodge, backpacker or luxury &mdash; every trip is planned around you.</p>
+      </div>
+      <div class="feature">
+        <h3>Eco &amp; Community Focus</h3>
+        <p>We work with partners committed to the environment and support local communities directly.</p>
+      </div>
+      <div class="feature">
+        <h3>Direct &amp; Personal</h3>
+        <p>You deal directly with our team &mdash; no call centres, just people who answer the phone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section section-alt">
+  <div class="container contact-grid">
+    <div class="contact-info">
+      <h2>Plan Your Trip</h2>
+      <p>Tell us what you're dreaming of, and we'll help you build it.</p>
+
+      <ul class="contact-list">
+        <li>
+          <span class="contact-label">Call</span>
+          <a href="tel:{{ site.company.phone_primary | replace: ' ', '' }}">{{ site.company.phone_primary }}</a>
+        </li>
+        <li>
+          <span class="contact-label">WhatsApp</span>
+          <a href="https://wa.me/{{ site.company.whatsapp }}" target="_blank" rel="noopener">Message us on WhatsApp</a>
+        </li>
+        <li>
+          <span class="contact-label">Email</span>
+          <a href="mailto:{{ site.company.email }}">{{ site.company.email }}</a>
+        </li>
+        <li>
+          <span class="contact-label">Office</span>
+          <span>{{ site.company.address_line1 }}<br>{{ site.company.address_line2 }}</span>
+        </li>
+      </ul>
+
+      <a href="tel:{{ site.company.phone_primary | replace: ' ', '' }}" class="btn btn-primary">Call Us Now</a>
+    </div>
+
+    <div class="contact-map">
+      <iframe
+        title="Ilya Tours office location in Tanga, Tanzania"
+        src="https://www.google.com/maps?q=Tanga,Tanzania&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
