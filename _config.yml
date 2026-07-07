@@ -4,8 +4,8 @@ description: >-
   Ilya Tours & Safaris is a locally owned tour operator based in Tanga,
   Tanzania, offering wildlife safaris, Kilimanjaro and Usambara treks,
   beach holidays and cultural tours tailored to you.
-url: "https://ilyatours.com"
-baseurl: ""
+url: "https://atle.github.io"
+baseurl: "/ilya-tours-website"
 
 company:
   name: Ilya Tours & Safaris Ltd
