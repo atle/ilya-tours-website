@@ -20,5 +20,6 @@ plugins: []
 
 exclude:
   - README.md
+  - build.sh
   - vendor
   - node_modules
