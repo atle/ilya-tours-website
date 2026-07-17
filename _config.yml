@@ -11,17 +11,14 @@ company:
   name: Ilya Tours & Safaris Ltd
   address_line1: "Ocean Breeze Hotel, Tanga City Centre"
   address_line2: "P.O. Box 6128, Tanga, Tanzania"
-  phone_primary: "+255 713 560 569"
-  phone_secondary: "+255 784 660 569"
-  whatsapp: "255713560569"
-  email: "david@ilyatours.com"
+  phone_primary: "+255 784 660 569"
+  phone_secondary: "+47 968 26 070"
+  email: "post@ilyatours.com"
 
 markdown: kramdown
 plugins: []
 
 exclude:
-  - Gemfile
-  - Gemfile.lock
   - README.md
   - vendor
   - node_modules

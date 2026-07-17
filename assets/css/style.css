@@ -76,15 +76,6 @@ a { color: var(--color-terracotta); }
 
 .site-nav a:hover { color: var(--color-terracotta); }
 
-.nav-cta {
-  background: var(--color-green);
-  color: #fff !important;
-  padding: 8px 16px;
-  border-radius: 999px;
-}
-
-.nav-cta:hover { background: var(--color-brown-dark); }
-
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -315,10 +306,10 @@ a { color: var(--color-terracotta); }
 .footer-inner { text-align: center; }
 
 .footer-logo {
-  height: 48px;
+  height: 56px;
   width: auto;
   margin: 0 auto 16px;
-  filter: brightness(0) invert(1) opacity(0.9);
+  border-radius: 8px;
 }
 
 .footer-inner p { margin: 4px 0; font-size: 0.9rem; }
@@ -357,11 +348,6 @@ a { color: var(--color-terracotta); }
     width: 100%;
     padding: 12px 0;
     border-bottom: 1px solid rgba(74,59,40,0.08);
-  }
-
-  .nav-cta {
-    margin-top: 10px;
-    text-align: center;
   }
 
   .hero h1 { font-size: 2.1rem; }

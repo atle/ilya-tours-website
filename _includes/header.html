@@ -1,6 +1,6 @@
 <header class="site-header" id="top">
   <div class="container header-inner">
-    <a class="brand" href="#top">
+    <a class="brand" href="{{ '/' | relative_url }}">
       <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="Ilya Tours & Safaris logo">
     </a>
 
@@ -13,7 +13,6 @@
       <a href="#tours">Tours</a>
       <a href="#why-us">Why Us</a>
       <a href="#contact">Contact</a>
-      <a class="nav-cta" href="tel:{{ site.company.phone_primary | replace: ' ', '' }}">Call Us</a>
     </nav>
   </div>
 </header>

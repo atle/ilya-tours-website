@@ -1,8 +1,11 @@
 # Ilya Tours & Safaris — website
 
 En enkel, responsiv one-page nettside for Ilya Tours & Safaris (Tanga,
-Tanzania), bygget i [Jekyll](https://jekyllrb.com/) for hosting på
-[GitHub Pages](https://pages.github.com/).
+Tanzania), bygget i [Jekyll](https://jekyllrb.com/). Siden bygges lokalt
+til statisk HTML og lastes opp til det eksisterende webhotellet
+(proisp.no) via FTP/SFTP — se [Publisere til webhotellet](#publisere-til-webhotellet)
+under. Dette GitHub-repoet brukes til versjonskontroll/backup av
+kildekoden, ikke til selve hostingen.
 
 ## Innhold på siden
 
@@ -11,8 +14,8 @@ Tanzania), bygget i [Jekyll](https://jekyllrb.com/) for hosting på
 - **Tours** — 5 eksempelturer (safari, Kilimanjaro, Usambara, strand,
   kultur/Maasai), styrt fra [`_data/tours.yml`](_data/tours.yml)
 - **Why Us** — fire korte fordeler
-- **Contact** — telefon, WhatsApp, e-post og Google Maps-embed (ingen
-  skjema, siden GitHub Pages ikke har noe backend)
+- **Contact** — telefon, e-post og Google Maps-embed (ingen skjema,
+  siden det ikke er noen server å sende det til)
 
 Bilder er hentet fra den gamle websiden (ilyatours.com) og ligger i
 [`assets/images/`](assets/images). Logoen er den samme
@@ -31,67 +34,50 @@ brukes i layouten ennå, i tilfelle dere vil bytte ut et av kortene.
 
 ## Se siden lokalt før du publiserer
 
-Raskeste vei, uten Bundler (unngår kjente versjonskonflikter mellom det
-gamle `github-pages`-gemmet og nyere Ruby-versjoner):
-
 ```bash
 gem install --user-install jekyll
 jekyll serve
 ```
 
+Eller bruk `.claude/run-jekyll.sh`, som i tillegg setter opp riktig
+PATH for Jekyll-installasjonen på denne maskinen (se
+[build.sh](build.sh) for samme oppsett brukt til selve bygget).
+
 Åpne <http://localhost:4000> i nettleseren. Siden oppdateres automatisk
 når du lagrer endringer.
 
-`Gemfile` med `github-pages`-gemmet ligger fortsatt i repoet fordi
-GitHub sin egen build-server bruker den til å garantere at siden bygges
-med nøyaktig samme Jekyll-versjon som er live på GitHub Pages. Du
-trenger den kun lokalt hvis du selv kjører `bundle exec jekyll serve`
-— og da må Ruby-versjonen din matche det github-pages forventer (rundt
-Ruby 2.7-3.x). Med nyere Ruby (3.4+/4.x) må du i så fall også legge til
-`gem "csv"` og `gem "bigdecimal"` i Gemfilen, siden de er fjernet fra
-standardbiblioteket.
+## Publisere til webhotellet
 
-## Publisere på GitHub Pages
+Siden hostes på det eksisterende webhotellet hos proisp.no (der
+e-posten `@ilyatours.com` også ligger) — ikke på GitHub Pages.
 
-1. Opprett et nytt repo på GitHub (f.eks. `ilya-tours-website`).
-2. Push denne mappen til repoet:
+1. Bygg siden lokalt:
    ```bash
-   git init
-   git add .
-   git commit -m "Initial website"
-   git branch -M main
-   git remote add origin https://github.com/<brukernavn>/<repo>.git
-   git push -u origin main
+   ./build.sh
    ```
-3. Gå til repoets **Settings → Pages**, velg branch `main` og mappe
-   `/ (root)`, lagre.
-4. GitHub bygger og publiserer siden automatisk (tar ofte 1-2 minutter).
+   Dette genererer en `_site/`-mappe med ferdig statisk HTML/CSS/bilder.
+2. Koble til webhotellet med FTP/SFTP (eller SSH + `rsync` om
+   tilgjengelig) og last opp **innholdet** i `_site/` (ikke selve
+   `_site`-mappen) til rot-mappen der nettsiden skal ligge
+   (`public_html` e.l.).
+3. Siden den gamle siden er bygget med et helt annet system (TYPO3,
+   med mapper som `typo3/`, `typo3conf/` osv.), bør de gamle filene
+   slettes fra webhotellet først — ellers kan de bli liggende igjen og
+   skape rot.
+4. DNS for `ilyatours.com` trenger ingen endring — den peker allerede
+   dit den skal.
+5. HTTPS/Let's Encrypt-sertifikatet håndteres av proisp.no sitt eget
+   kontrollpanel, akkurat som for den gamle siden.
 
-### Eget domene (ilyatours.com)
+Gjenta steg 1–2 hver gang dere gjør innholdsendringer.
 
-Filen [`CNAME`](CNAME) i repoet er allerede satt til `ilyatours.com`,
-så GitHub vet at siden skal peke mot det domenet. For at det skal
-fungere må dere i tillegg gjøre dette hos domeneleverandøren (der
-`ilyatours.com` er registrert):
+### GitHub-repoet
 
-- Legg til en **A-record** for roten (`@`) som peker til GitHub Pages'
-  IP-adresser:
-  ```
-  185.199.108.153
-  185.199.109.153
-  185.199.110.153
-  185.199.111.153
-  ```
-- (Valgfritt) Legg til en **CNAME-record** for `www` som peker til
-  `<brukernavn>.github.io`.
-- I repoets **Settings → Pages**, kryss av for **Enforce HTTPS** når
-  GitHub har verifisert domenet (kan ta litt tid etter DNS-endringen).
+Brukes kun til versjonskontroll/backup av kildekoden — `git add`,
+`git commit`, `git push` som normalt. GitHub Pages er ikke i bruk.
 
 ## Ting dere bør sjekke/fylle inn selv
 
-- **E-post og telefonnumre** i `_config.yml` er hentet fra den gamle
-  siden (David Kimea, Managing Director) — bytt ut om dere ønsker en
-  annen hovedkontakt.
 - **Facebook-lenke** er ikke lagt inn (fantes ikke en direkte URL på
   den gamle siden) — legg gjerne til en lenke i `_includes/footer.html`
   om dere har en Facebook-side.

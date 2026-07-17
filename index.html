@@ -116,10 +116,7 @@ layout: default
         <li>
           <span class="contact-label">Call</span>
           <a href="tel:{{ site.company.phone_primary | replace: ' ', '' }}">{{ site.company.phone_primary }}</a>
-        </li>
-        <li>
-          <span class="contact-label">WhatsApp</span>
-          <a href="https://wa.me/{{ site.company.whatsapp }}" target="_blank" rel="noopener">Message us on WhatsApp</a>
+          <a href="tel:{{ site.company.phone_secondary | replace: ' ', '' }}">{{ site.company.phone_secondary }}</a>
         </li>
         <li>
           <span class="contact-label">Email</span>
@@ -130,14 +127,12 @@ layout: default
           <span>{{ site.company.address_line1 }}<br>{{ site.company.address_line2 }}</span>
         </li>
       </ul>
-
-      <a href="tel:{{ site.company.phone_primary | replace: ' ', '' }}" class="btn btn-primary">Call Us Now</a>
     </div>
 
     <div class="contact-map">
       <iframe
         title="Ilya Tours office location in Tanga, Tanzania"
-        src="https://www.google.com/maps?q=Tanga,Tanzania&output=embed"
+        src="https://www.google.com/maps?q={{ 'Ocean Breeze Hotel, Tanga, Tanzania' | uri_escape }}&output=embed"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade">
       </iframe>
